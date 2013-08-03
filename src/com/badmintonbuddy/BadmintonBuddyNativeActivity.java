@@ -3,6 +3,7 @@ package com.badmintonbuddy;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnKeyListener;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -27,7 +28,6 @@ public class BadmintonBuddyNativeActivity extends SlidingMenuActivity  implement
         setContentView(R.layout.main);
         setMenuDrawer(R.layout.main);
 		appStatus = AppStatus.getInstance(this);
-		
 		
     }
 

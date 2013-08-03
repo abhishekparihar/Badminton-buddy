@@ -11,6 +11,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
 import com.badmintonbuddy.helpers.LogUtils;
+import com.badmintonbuddy.models.AreaResult;
 import com.badmintonbuddy.models.LoginResult;
 import com.google.myjson.Gson;
 
@@ -78,4 +79,29 @@ public class LoginWebService implements WebServiceIface {
         }
         return result;
     }
+    
+    public static AreaResult getAreas(Context context, String... areaParams) {
+    	AreaResult result = null;
+
+        WebService webService = new WebService(BASE_URL + "all_areas.json");
+
+        List<NameValuePair> params = new ArrayList<NameValuePair>(1);
+        params.add(new BasicNameValuePair("auth_key", areaParams[0]));
+
+        String response = webService.webPost("", params);
+
+        if ( response != null ) {
+        	LogUtils.LOGE("LoginWebService", response.toString());
+        }
+
+        try {
+            result = new Gson().fromJson(response, AreaResult.class);
+            LogUtils.LOGE("LoginWebService", result.toString());
+        } catch (Exception e) {
+        	LogUtils.LOGE("LoginWebService", "LoginResult Error: " + e.getMessage());
+        }
+
+        return result;
+    }
+
 }

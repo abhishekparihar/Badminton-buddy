@@ -17,6 +17,8 @@ public class AppStatus {
     public final String NAME = "name";
     public final String EMAIL = "email";
     public final String PHONE_NO = "phone_no";
+    
+    public final String IS_FIRST_TIME = "first_time";
  
 
     public static AppStatus getInstance(Context ctx) {

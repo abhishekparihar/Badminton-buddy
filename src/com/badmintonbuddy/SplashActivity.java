@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.badmintonbuddy.helpers.AppStatus;
 import com.badmintonbuddy.helpers.LogUtils;
+import com.badmintonbuddy.location.LocationActivity;
 import com.weboapps.badmintonbuddy.R;
 
 public class SplashActivity extends Activity {
@@ -51,11 +52,15 @@ public class SplashActivity extends Activity {
                 }
 
                 if ( appStatus.isOnline() ) {
-                    if ( true == appStatus.isRegistered() ) {
-                   
-                        Intent i = new Intent(SplashActivity.this, BadmintonBuddyNativeActivity.class);
-                        i.putExtra("LOGIN_FLAG", false);
-                        startActivity(i);
+                	if ( appStatus.isRegistered() ) {
+
+                		if(!appStatus.getSharedBoolValue(appStatus.IS_FIRST_TIME)){
+                			Intent i = new Intent(SplashActivity.this, LocationActivity.class);
+                			startActivity(i);
+                		}else{
+                			Intent i = new Intent(SplashActivity.this, BadmintonBuddyNativeActivity.class);
+                			startActivity(i);
+                		}
                         finish();
                     } else {
                     	Intent intent_login = new Intent(SplashActivity.this, LoginActivity.class);
