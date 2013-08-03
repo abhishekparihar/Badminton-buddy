@@ -12,9 +12,9 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:ems="10"
+        android:layout_marginTop="-30dp"
         android:hint="@string/name"
         android:inputType="text" >
-
         <requestFocus />
     </EditText>
 
@@ -48,7 +48,7 @@
         android:id="@+id/buttonSubmit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="onLoginClick"
+        android:onClick="onSignUpClick"
         android:text="@string/login" />
 
 </LinearLayout>

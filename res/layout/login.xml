@@ -36,4 +36,12 @@
         android:text="@string/login"
         android:onClick="onLoginClick" />
 
+    <Button
+        android:id="@+id/buttonGotoSignUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent"
+        android:text="@string/new_user_signup"
+        android:onClick="gotoSignUp" />
+
 </LinearLayout>
