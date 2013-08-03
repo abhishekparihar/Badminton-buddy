@@ -19,7 +19,7 @@ public class NearbyBuddyActivity extends SlidingMenuActivity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.nearby_buddies);
-		setMenuDrawer(R.layout.nearby_buddies);
+		setMenuDrawer(R.layout.nearby_buddies,"Nearby Buddies",R.color.green_light);
 		
 		mBuddyResult = (BuddyResult) getIntent().getSerializableExtra("buddy_list");
 
