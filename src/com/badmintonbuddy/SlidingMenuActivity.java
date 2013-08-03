@@ -13,7 +13,7 @@ import com.badmintonbuddy.helpers.LogUtils;
 import com.badmintonbuddy.slidingmenu.MenuDrawer;
 import com.weboapps.badmintonbuddy.R;
 
-public class SlidingMenuActivity extends Activity implements OnClickListener {
+public class SlidingMenuActivity extends Activity {
 
 	private static final String STATE_ACTIVE_POSITION = "com.badmintonbuddy.activePosition";
 
@@ -60,58 +60,19 @@ public class SlidingMenuActivity extends Activity implements OnClickListener {
 		buttonLogout = (Button)findViewById(R.id.buttonLogout);
 
 		buttonAbout.setOnClickListener(buttonLister);
-		/*buttonHome.setOnClickListener(SlidingMenuActivity.this);
-		buttonMyBuddies.setOnClickListener(SlidingMenuActivity.this);
-		buttonFavLocation.setOnClickListener(SlidingMenuActivity.this);
-		buttonSchedule.setOnClickListener(SlidingMenuActivity.this);
-		buttonTournaments.setOnClickListener(SlidingMenuActivity.this);
-		buttonRules.setOnClickListener(this);
-		buttonTips.setOnClickListener(this); 
-		buttonAccount.setOnClickListener(this);
-		buttonLogout.setOnClickListener(this);*/
+		buttonHome.setOnClickListener(buttonLister);
+		buttonMyBuddies.setOnClickListener(buttonLister);
+		buttonFavLocation.setOnClickListener(buttonLister);
+		buttonSchedule.setOnClickListener(buttonLister);
+		buttonTournaments.setOnClickListener(buttonLister);
+		buttonRules.setOnClickListener(buttonLister);
+		buttonTips.setOnClickListener(buttonLister); 
+		buttonAccount.setOnClickListener(buttonLister);
+		buttonLogout.setOnClickListener(buttonLister);
 
 	}
 
 
-	@Override
-	public void onClick(View v) {
-		LogUtils.LOGV(TAG, "on click called");
-		switch (v.getId()) {
-		case R.id.buttonAbout :
-			i = new Intent(SlidingMenuActivity.this, SplashActivity.class);
-			break;
-		case R.id.buttonHome :
-			i = new Intent(SlidingMenuActivity.this, SplashActivity.class);
-			break;
-		case R.id.buttonMyBuddies :
-			i = new Intent(SlidingMenuActivity.this, SplashActivity.class);
-			break;
-		case R.id.buttonFavLocation :
-			i = new Intent(SlidingMenuActivity.this, SplashActivity.class);
-			break;
-		case R.id.buttonSchedule :
-			i = new Intent(SlidingMenuActivity.this, SplashActivity.class);
-			break;
-		case R.id.buttonTournaments :
-			i = new Intent(SlidingMenuActivity.this, SplashActivity.class);
-			break;
-		case R.id.buttonRules :
-			i = new Intent(SlidingMenuActivity.this, SplashActivity.class);
-			break;
-		case R.id.buttonTips :
-			i = new Intent(SlidingMenuActivity.this, SplashActivity.class);
-			break;
-		case R.id.buttonAccount :
-			i = new Intent(SlidingMenuActivity.this, SplashActivity.class);
-			break;
-		case R.id.buttonLogout :
-			i = new Intent(SlidingMenuActivity.this, SplashActivity.class);
-			break;
-
-		default:
-			break;
-		}
-	}
 
 	public void setMenuDrawer(int layoutId){
 		mMenuDrawer = MenuDrawer.attach(this, MenuDrawer.MENU_DRAG_WINDOW);
