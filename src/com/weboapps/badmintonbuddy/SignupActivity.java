@@ -1,5 +1,7 @@
 package com.weboapps.badmintonbuddy;
 
+import com.weboapps.badmintonbuddy.models.LoginResult;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
@@ -10,6 +12,7 @@ public class SignupActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+        
     }
 
 
@@ -19,5 +22,10 @@ public class SignupActivity extends Activity {
         getMenuInflater().inflate(R.menu.badminton_buddy_native, menu);
         return true;
     }
+
+
+	public void onAuthenticationResult(LoginResult result) {
+		
+	}
     
 }
