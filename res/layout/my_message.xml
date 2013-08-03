@@ -15,7 +15,7 @@
         android:textSize="16sp"
         android:textColor="@color/gray_attendace_text"
         android:background="@color/green_lighter"
-        android:text="13 messages" />
+        />
     
     <ListView 
         android:id="@+id/listViewMyMessages"

@@ -81,7 +81,7 @@
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/buttonSchedule"
+                android:id="@+id/buttonMsg"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
@@ -91,7 +91,7 @@
                 android:textSize="16sp"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
-                android:text="@string/my_schedule" />
+                android:text="@string/my_messages" />
 
             <Button
                 android:id="@+id/buttonTournaments"

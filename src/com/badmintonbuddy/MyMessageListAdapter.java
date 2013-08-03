@@ -1,5 +1,7 @@
 package com.badmintonbuddy;
 
+import com.badmintonbuddy.models.MyMessagesResult;
+import com.badmintonbuddy.models.MyMessagesResult.Messages;
 import com.weboapps.badmintonbuddy.R;
 
 import android.content.Context;
@@ -13,20 +15,24 @@ public class MyMessageListAdapter extends BaseAdapter {
 
 	Context mContext;
 	private LayoutInflater mInflater;
-	public MyMessageListAdapter(Context context){
-		mContext = context;
+	MyMessagesResult messages;
+	
+	public MyMessageListAdapter(MyMessageActivity myMessageActivity,
+			MyMessagesResult messagesResult) {
+		mContext = myMessageActivity;
+		messages=messagesResult;
 		mInflater = LayoutInflater.from(mContext);
 	}
 	@Override
 	public int getCount() {
 		// TODO Auto-generated method stub
-		return 0;
+		return messages.getMessages().size();
 	}
 
 	@Override
 	public Object getItem(int arg0) {
 		// TODO Auto-generated method stub
-		return null;
+		return messages.getMessages().get(arg0);
 	}
 
 	@Override
@@ -45,9 +51,17 @@ public class MyMessageListAdapter extends BaseAdapter {
 		
 			if (convertView == null) 
 				convertView = mInflater.inflate(R.layout.my_message_list_item, null);
+			
 			textViewName = (TextView)convertView.findViewById(R.id.textViewName);
 			textViewArea = (TextView)convertView.findViewById(R.id.textViewArea);
 			textViewMessage = (TextView)convertView.findViewById(R.id.textViewMessage);
+			
+			Messages messages=(Messages)getItem(position);
+			
+			textViewName.setText(messages.getSender());
+			textViewMessage.setText(messages.getMessage());
+			
+			
 		return convertView;
 	}
 

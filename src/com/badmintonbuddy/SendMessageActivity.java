@@ -2,17 +2,18 @@ package com.badmintonbuddy;
 
 import java.util.List;
 
+import org.json.JSONObject;
+
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.badmintonbuddy.helpers.LogUtils;
-import com.badmintonbuddy.models.BuddyResult;
-import com.badmintonbuddy.tasks.BuddyTask;
 import com.badmintonbuddy.tasks.SendMsgTask;
 import com.weboapps.badmintonbuddy.R;
 
@@ -44,9 +45,9 @@ public class SendMessageActivity extends SlidingMenuActivity {
 			args[2] = ""+mSelectedList;
 
 			if ( appStatus.isOnline() ) {
-				this.showDialog(0);
+				showDialog(0);
 
-				new SendMsgTask(this).execute(args);
+				new SendMsgTask(this).execute(args); 
 			} else {
 				LogUtils.LOGV(TAG, "App is not online!");
 				Toast toast = Toast.makeText(SendMessageActivity.this, "App is not online!", 8000);
@@ -82,8 +83,28 @@ public class SendMessageActivity extends SlidingMenuActivity {
 	}
 
 
-	public void onAuthenticationResult(BuddyResult result) {
+	public void onAuthenticationResult(String response) {
 		removeDialog(0);
+		
+		try {
+			JSONObject jsonObject = new JSONObject(response);
+
+			Boolean result = jsonObject.getBoolean("success");
+			String strMessage = jsonObject.getString("messages");
+			
+			Toast toast = Toast.makeText(SendMessageActivity.this, strMessage, 8000);
+			toast.show();
+			
+			if(result){
+				Intent i = new Intent(SendMessageActivity.this, BadmintonBuddyNativeActivity.class);
+				startActivity(i);
+				finish();
+			}
+
+			LogUtils.LOGE("LoginWebService", result.toString());
+		} catch (Exception e) {
+			LogUtils.LOGE("LoginWebService", "LoginResult Error: " + e.getMessage());
+		}
 		
 	}
 
