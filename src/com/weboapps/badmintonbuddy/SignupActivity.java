@@ -1,20 +1,38 @@
 package com.weboapps.badmintonbuddy;
 
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+
 import com.weboapps.badmintonbuddy.models.LoginResult;
 
-import android.os.Bundle;
-import android.app.Activity;
-import android.view.Menu;
-
 public class SignupActivity extends Activity {
+	EditText editTextSignUpEmail, editTextSignUpPassword, editTextPhone, editTextSignUpName;
+	Button buttonSubmit;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.signup);
+		
+		initializeWidgets();
+	}
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
-        
-    }
 
+	private void initializeWidgets() {
+		editTextSignUpEmail = (EditText)findViewById(R.id.editTextSignUpEmail);
+		editTextSignUpPassword = (EditText)findViewById(R.id.editTextSignUpPassword);
+		editTextPhone = (EditText)findViewById(R.id.editTextPhone);
+		editTextSignUpName = (EditText)findViewById(R.id.editTextSignUpName);
+		buttonSubmit = (Button) findViewById(R.id.buttonSubmit);
+		
+	}
+
+	public void onSignUpClick(View v){
+		
+	}
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -27,5 +45,5 @@ public class SignupActivity extends Activity {
 	public void onAuthenticationResult(LoginResult result) {
 		
 	}
-    
+  
 }

@@ -1,0 +1,36 @@
+<resources>
+
+    <color name="transparent">#00000000</color>
+    <color name="translucent">#DD000000</color>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="pink_red">#FF555555</color>
+    <color name="gray">#808080</color>
+	<color name="gray_dark">#757575</color>
+	<color name="gray_light">#4d4d4d</color>
+	<color name="green">#369d32</color>
+	<color name="green_light">#63cb5c</color>
+	<color name="orange">#ff7c00</color>
+	<color name="orange_dark">#af4421</color>
+	<color name="orange_light">#ffa200</color>
+	<color name="orange_lighter">#d57e3b</color>
+	<color name="purple">#543c8b</color>
+	<color name="purple_border">#49325c</color>
+	<color name="purple_dark">#422f7e</color>
+	<color name="purple_light">#7050b3</color>
+	<color name="purple_lighter">#efecf4</color>
+	<color name="red">#ff0000</color>
+	<color name="red_dark">#ca1f25</color>
+	<color name="blue_dark">#334a85</color>
+	<color name="bonzi_gray">#3F3F3F</color>
+	<color name="bonzi_red">#CC3524</color>
+	<color name="bonzi_blue">#85D0D8</color>
+	<color name="bonzi_gray_dark">#1f1f1f</color>
+	<color name="bonzi_gray_darker">#2f2f2f</color>
+	<color name="white_shadow">#30ffffff</color>
+	<color name="gray_attendace_text">#666666</color>
+	<color name="gray_light_attendace">#f9f9f9</color>
+	<color name="gray_light_radio_button">#f8f8f8</color>
+	<color name="gray_light_select_team_text">#8f8f8f</color>
+	<color name="gray_dark_attendace">#eeeeee</color>
+</resources>

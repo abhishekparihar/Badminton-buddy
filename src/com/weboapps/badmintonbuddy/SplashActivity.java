@@ -52,7 +52,7 @@ public class SplashActivity extends Activity {
                 if ( appStatus.isOnline() ) {
                     if ( true == appStatus.isRegistered() ) {
                    
-                        Intent i = new Intent(SplashActivity.this, BadmintonBuddyNativeActivity	.class);
+                        Intent i = new Intent(SplashActivity.this, BadmintonBuddyNativeActivity.class);
                         i.putExtra("LOGIN_FLAG", false);
                         startActivity(i);
                         finish();

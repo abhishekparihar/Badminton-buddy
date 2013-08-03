@@ -21,7 +21,7 @@ public class LoginActivity extends Activity {
 	final static String TAG = "LoginActivity";
 
 	EditText editTextUser, editTextPassword;
-	Button buttonLogin;
+	Button buttonLogin, buttonGotoSignUp;
 
 	private AppStatus appStatus;
 
@@ -60,6 +60,10 @@ public class LoginActivity extends Activity {
 			Toast toast = Toast.makeText(LoginActivity.this, "App is not online!", 8000);
             toast.show();
 		}
+	}
+	
+	public void gotoSignUp(View v){
+		
 	}
 
 

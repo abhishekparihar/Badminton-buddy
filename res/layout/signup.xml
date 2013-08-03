@@ -4,24 +4,31 @@
     android:layout_height="match_parent"
     android:layout_gravity="center"
     android:gravity="center"
-    android:orientation="vertical"
-    tools:context=".LoginActivity" >
+    android:orientation="vertical">
 
     <EditText
-        android:id="@+id/editTextUser"
+        android:id="@+id/editTextSignUpName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
-        android:layout_marginTop="-40dp"
         android:ems="10"
-        android:hint="@string/email"
-        android:inputType="textEmailAddress" >
-
+        android:layout_marginTop="-30dp"
+        android:hint="@string/name"
+        android:inputType="text" >
         <requestFocus />
     </EditText>
 
     <EditText
-        android:id="@+id/editTextPassword"
+        android:id="@+id/editTextSignUpEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:ems="10"
+        android:hint="@string/email"
+        android:inputType="textEmailAddress" />
+
+    <EditText
+        android:id="@+id/editTextSignUpPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
@@ -29,19 +36,19 @@
         android:hint="@string/password"
         android:inputType="textPassword" />
 
-    <Button
-        android:id="@+id/buttonLogin"
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/editTextPhone"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/login"
-        android:onClick="onLoginClick" />
+        android:ems="10"
+        android:hint="@string/mobile_number"
+        android:inputType="phone" />
 
     <Button
-        android:id="@+id/buttonGotoSignUp"
+        android:id="@+id/buttonSubmit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/transparent"
-        android:text="@string/new_user_signup"
-        android:onClick="gotoSignUp" />
+        android:onClick="onSignUpClick"
+        android:text="@string/login" />
 
 </LinearLayout>
