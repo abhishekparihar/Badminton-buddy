@@ -13,7 +13,7 @@ import com.badmintonbuddy.helpers.LogUtils;
 import com.badmintonbuddy.slidingmenu.MenuDrawer;
 import com.weboapps.badmintonbuddy.R;
 
-public class SlidingMenuActivity extends Activity  {
+public class SlidingMenuActivity extends Activity {
 
 	private static final String STATE_ACTIVE_POSITION = "com.badmintonbuddy.activePosition";
 
