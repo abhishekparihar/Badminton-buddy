@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -98,17 +99,15 @@ public class AreaListActivity extends SlidingMenuActivity {
 
 		try{
 			removeDialog(0);
-			if(result == null){
+			if(result == null ){
 				Toast toast = Toast.makeText(AreaListActivity.this, "Something went wrong, try again!", 8000);
 				toast.show();
 			}
 
 			if(result.getSuccess()){
-				//appStatus.saveSharedBoolValue(appStatus.IS_FIRST_TIME, true);
-
-				/*Intent i = new Intent(AreaListActivity.this, AreaListActivity.class);
-				i.putExtra("area_list", result);
-				startActivity(i);*/
+				Intent i = new Intent(AreaListActivity.this, NearbyBuddyActivity.class);
+				i.putExtra("buddy_list", result);
+				startActivity(i);
 			}else{
 				Toast toast = Toast.makeText(AreaListActivity.this, "Something went wrong, try again!", 8000);
 				toast.show();

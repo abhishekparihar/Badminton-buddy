@@ -27,7 +27,7 @@
         android:text="@string/send_message"
         android:textColor="@color/white"
         android:textSize="18sp"
-        android:onClick=""
+        android:onClick="sendMessageClick"
         android:textStyle="bold" />
 
 </LinearLayout>
