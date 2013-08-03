@@ -68,6 +68,10 @@
             android:name="com.badmintonbuddy.location.LocationActivity"
             android:label="@string/app_name" >
         </activity>
+        <activity
+            android:name="com.badmintonbuddy.NearbyActivity"
+            android:label="@string/app_name" >
+        </activity>
     </application>
 
 </manifest>
