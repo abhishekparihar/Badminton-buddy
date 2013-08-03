@@ -82,6 +82,16 @@
             android:name="com.badmintonbuddy.TipsActivity"
             android:label="@string/app_name" >
         </activity>
+        <activity
+            android:name="com.badmintonbuddy.MyMessageActivity"
+            android:label="@string/app_name" >
+        </activity>
+        
+         <activity
+            android:name="com.badmintonbuddy.CourtsActivity"
+            android:label="@string/app_name" >
+        </activity>
+        
     </application>
 
 </manifest>

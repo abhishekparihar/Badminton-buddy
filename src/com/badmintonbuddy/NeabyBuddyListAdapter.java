@@ -3,7 +3,6 @@ package com.badmintonbuddy;
 import java.util.ArrayList;
 import java.util.List;
 
-import android.R.bool;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;

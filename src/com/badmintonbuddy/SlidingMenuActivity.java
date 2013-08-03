@@ -26,7 +26,7 @@ public class SlidingMenuActivity extends Activity {
 	Bundle bundle;
 	private int mActivePosition = -1;
 
-	public Button buttonHome, buttonMyBuddies, buttonFavLocation, buttonSchedule, buttonTournaments, buttonRules, buttonTips, 
+	public Button buttonHome, buttonMyBuddies, buttonCourts, buttonMsgs, buttonTournaments, buttonRules, buttonTips, 
 	buttonAbout, buttonAccount, buttonLogout;
 	
 	TextView textViewHeaderTitle;
@@ -85,8 +85,8 @@ public class SlidingMenuActivity extends Activity {
 	private void initializeWidgets() {
 		buttonHome = (Button)findViewById(R.id.buttonHome);
 		buttonMyBuddies = (Button)findViewById(R.id.buttonMyBuddies);
-		buttonFavLocation = (Button)findViewById(R.id.buttonFavLocation);
-		buttonSchedule = (Button)findViewById(R.id.buttonSchedule);
+		buttonCourts = (Button)findViewById(R.id.buttonCourts);
+		buttonMsgs = (Button)findViewById(R.id.buttonMsg);
 		buttonTournaments = (Button)findViewById(R.id.buttonTournaments);
 		buttonRules = (Button)findViewById(R.id.buttonRules);
 		buttonTips = (Button)findViewById(R.id.buttonTips);
@@ -97,8 +97,8 @@ public class SlidingMenuActivity extends Activity {
 		buttonAbout.setOnClickListener(buttonLister);
 		buttonHome.setOnClickListener(buttonLister);
 		buttonMyBuddies.setOnClickListener(buttonLister);
-		buttonFavLocation.setOnClickListener(buttonLister);
-		buttonSchedule.setOnClickListener(buttonLister);
+		buttonCourts.setOnClickListener(buttonLister);
+		buttonMsgs.setOnClickListener(buttonLister);
 		buttonTournaments.setOnClickListener(buttonLister);
 		buttonRules.setOnClickListener(buttonLister);
 		buttonTips.setOnClickListener(buttonLister); 
@@ -123,11 +123,11 @@ public class SlidingMenuActivity extends Activity {
 			case R.id.buttonMyBuddies :
 				i = new Intent(SlidingMenuActivity.this, SplashActivity.class);
 				break;
-			case R.id.buttonFavLocation :
-				i = new Intent(SlidingMenuActivity.this, SplashActivity.class);
+			case R.id.buttonCourts :
+				i = new Intent(SlidingMenuActivity.this, CourtsActivity.class);
 				break;
-			case R.id.buttonSchedule :
-				i = new Intent(SlidingMenuActivity.this, SplashActivity.class);
+			case R.id.buttonMsg :
+				i = new Intent(SlidingMenuActivity.this, MyMessageActivity.class);
 				break;
 			case R.id.buttonTournaments :
 				i = new Intent(SlidingMenuActivity.this, SplashActivity.class);

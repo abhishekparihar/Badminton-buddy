@@ -11,7 +11,6 @@ import android.widget.Toast;
 
 import com.badmintonbuddy.AreaListActivity;
 import com.badmintonbuddy.BadmintonBuddyNativeActivity;
-import com.badmintonbuddy.LoginActivity;
 import com.badmintonbuddy.SlidingMenuActivity;
 import com.badmintonbuddy.helpers.AppStatus;
 import com.badmintonbuddy.helpers.LogUtils;

@@ -12,8 +12,11 @@
     <string name="new_user_signup">New user? SignUp</string>
     <string name="home">Home</string>
     <string name="favourite_locations">Favourite locations</string>
+     <string name="courts">Courts</string>
+    
     <string name="my_buddies">My buddies</string>
     <string name="my_schedule">My schedule</string>
+    <string name="my_messages">My messages</string>
     <string name="tournaments">Tournaments</string>
     <string name="rules">Rules</string>
     <string name="tips_and_tricks">Tips and Tricks</string>

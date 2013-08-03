@@ -4,8 +4,6 @@ import android.os.AsyncTask;
 import android.widget.Toast;
 
 import com.badmintonbuddy.AreaListActivity;
-import com.badmintonbuddy.location.LocationActivity;
-import com.badmintonbuddy.models.AreaResult;
 import com.badmintonbuddy.models.BuddyResult;
 import com.badmintonbuddy.services.LoginWebService;
 

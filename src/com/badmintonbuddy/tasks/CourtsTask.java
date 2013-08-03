@@ -3,21 +3,22 @@ package com.badmintonbuddy.tasks;
 import android.os.AsyncTask;
 import android.widget.Toast;
 
-import com.badmintonbuddy.SendMessageActivity;
+import com.badmintonbuddy.CourtsActivity;
+import com.badmintonbuddy.models.CourtResult;
 import com.badmintonbuddy.services.LoginWebService;
 
-public class SendMsgTask extends AsyncTask<String, Integer, String> {
-	private SendMessageActivity context;
+public class CourtsTask extends AsyncTask<String, Integer, CourtResult> {
+	private CourtsActivity context;
 
-	public SendMsgTask(SendMessageActivity context) {
+	public CourtsTask(CourtsActivity context) {
 		this.context = context;
 	}
 
-	protected String doInBackground(String... login_params) {
-			return LoginWebService.sendMessage(context, login_params);
+	protected CourtResult doInBackground(String... login_params) {
+			return LoginWebService.getCourts(context, login_params);
 	}
 
-	protected void onPostExecute(String result) {
+	protected void onPostExecute(CourtResult result) {
 		if(context!=null){
 			if ( result != null )
 				context.onAuthenticationResult(result);
