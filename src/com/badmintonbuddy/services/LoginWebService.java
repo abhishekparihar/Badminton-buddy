@@ -15,6 +15,8 @@ import com.badmintonbuddy.models.LoginResult;
 import com.google.myjson.Gson;
 
 public class LoginWebService implements WebServiceIface {
+	
+	final static String TAG = "LoginWebService";
 
     public static LoginResult login(Context context, String... login_params) {
         LoginResult result = null;
@@ -51,5 +53,31 @@ public class LoginWebService implements WebServiceIface {
         }
 
         return false;
+    }
+    
+    public static LoginResult create(Context context, String[] create_params) {
+        LoginResult result = null;
+        LogUtils.LOGE(TAG, "Network available: " + Boolean.toString(isNetworkAvailable(context)));
+        WebService webService = new WebService(BASE_URL + "/mobile_user/sign_up.json");
+
+        List<NameValuePair> params = new ArrayList<NameValuePair>(5);
+        params.add(new BasicNameValuePair("email", create_params[0]));
+        params.add(new BasicNameValuePair("password", create_params[1]));
+        params.add(new BasicNameValuePair("first_name", create_params[2]));
+        params.add(new BasicNameValuePair("last_name", create_params[3]));
+        params.add(new BasicNameValuePair("app_id", create_params[4]));
+
+        String response = webService.webPost("", params);
+        if ( response != null )
+        	LogUtils.LOGE(TAG, "CREATE ACCOUNT RESULT: " + response.toString());
+
+        try {
+            result = new Gson().fromJson(response, LoginResult.class);
+           
+            LogUtils.LOGE(TAG, result.toString());
+        } catch (Exception e) {
+        	LogUtils.LOGE(TAG, "LoginResult Error: " + e.getMessage());
+        }
+        return result;
     }
 }

@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.weboapps.badmintonbuddy.models.LoginResult;
+
 public class SignupActivity extends Activity {
 	EditText editTextSignUpEmail, editTextSignUpPassword, editTextPhone, editTextSignUpName;
 	Button buttonSubmit;
@@ -34,11 +36,16 @@ public class SignupActivity extends Activity {
 		
 	}
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.badminton_buddy_native, menu);
-		return true;
-	}
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.badminton_buddy_native, menu);
+        return true;
+    }
 
+
+	public void onAuthenticationResult(LoginResult result) {
+		
+	}
+  
 }
