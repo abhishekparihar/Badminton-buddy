@@ -1,4 +1,4 @@
-package com.weboapps.badmintonbuddy.tasks;
+package com.badmintonbuddy.tasks;
 
 import android.os.AsyncTask;
 import android.widget.Toast;

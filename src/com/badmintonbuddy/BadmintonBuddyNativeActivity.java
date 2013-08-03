@@ -1,6 +1,10 @@
 package com.badmintonbuddy;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnKeyListener;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -42,4 +46,45 @@ public class BadmintonBuddyNativeActivity extends SlidingMenuActivity  implement
 		
 	}
     
+    @Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		if (keyCode == KeyEvent.KEYCODE_BACK) {
+			ShowMessageBox();
+			return true;
+		}
+		return super.onKeyDown(keyCode, event);
+	}
+	
+	public void ShowMessageBox() {
+		AlertDialog exitAlert = new AlertDialog.Builder(this).create();
+
+		exitAlert.setTitle("Exit Application");
+
+		exitAlert.setMessage("Are you sure you want to exit?");
+
+		exitAlert.setButton("Yes", new DialogInterface.OnClickListener() {
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				dialog.dismiss();
+				finish();
+			}
+		});
+		exitAlert.setButton2("No", new DialogInterface.OnClickListener() {
+
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				dialog.dismiss();
+			}
+		});
+		exitAlert.setOnKeyListener(new OnKeyListener() {
+			@Override
+			public boolean onKey(DialogInterface dialog, int keyCode, KeyEvent event) {
+				if ( keyCode == KeyEvent.KEYCODE_SEARCH || keyCode == KeyEvent.KEYCODE_MENU ) {
+					return true;
+				}
+				return false;
+			}
+		});
+		exitAlert.show();
+	}
 }
