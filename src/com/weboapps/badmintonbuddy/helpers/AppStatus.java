@@ -5,116 +5,115 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.widget.EditText;
 
 public class AppStatus {
+    private static AppStatus instance = new AppStatus();
+    ConnectivityManager connectivityManager;
+    static Context context;
+    boolean connected = false;
+    public static final String FILE_NAME = "appdata";
+    public final String AUTH_KEY = "auth_key";
+ 
 
-	final static String TAG = "AppStatus";
-	private static AppStatus instance = new AppStatus();
-	static Context context;
-	boolean connected = false;
-	ConnectivityManager connectivityManager;
+    public static AppStatus getInstance(Context ctx) {
+        context = ctx;
+        return instance;
+    }
 
-	public static final String FILE_NAME = "appdata";
-	public final String LOGIN_STATUS = "login_status";
-	
+    public Boolean isOnline() {
 
-	public final String IS_USER_API_CALLED = "is_user_api_called";
+        try {
+            connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
 
-	public static AppStatus getInstance(Context ctx) {
-		context = ctx;
-		return instance;
-	}
+            NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+            connected = networkInfo != null && networkInfo.isAvailable() && networkInfo.isConnected();
+            return connected;
 
-	public Boolean isOnline() {
+        } catch (Exception e) {
+            LogUtils.LOGE("AppStatus", e.toString());
+        }
+        return connected;
+    }
 
-		try {
-			connectivityManager = (ConnectivityManager) context
-					.getSystemService(Context.CONNECTIVITY_SERVICE);
+    public Boolean isRegistered() {
+        try {
+            String auth_key = getSharedStringValue(AUTH_KEY);
+            if ( auth_key == null )
+                return false;
+            else
+                return true;
+        } catch (Exception e) {
+        	LogUtils.LOGD("AppStatus", e.toString());
+        }
 
-			NetworkInfo networkInfo = connectivityManager
-					.getActiveNetworkInfo();
-			connected = networkInfo != null && networkInfo.isAvailable()
-					&& networkInfo.isConnected();
-			return connected;
+        return false;
+    }
 
-		} catch (Exception e) {
-			LogUtils.LOGE(TAG, e.toString());
-		}
-		return connected;
-	}
+    public String getSharedStringValue(String key) {
+        SharedPreferences sp = context.getSharedPreferences("FILE_NAME", 0);
+        String value = sp.getString(key, null);
+        return value;
+    }
 
-	public Boolean isRegistered() {
-		try {
-			if (!getSharedBoolValue(LOGIN_STATUS))
-				return false;
-			else
-				return true;
-		} catch (Exception e) {
-			LogUtils.LOGE(TAG, e.toString());
-		}
+    public boolean saveSharedStringValue(String key, String value) {
+        SharedPreferences sp = context.getSharedPreferences("FILE_NAME", 0);
+        Editor edit = sp.edit();
+        edit.putString(key, value);
+        return edit.commit();
+    }
 
-		return false;
-	}
-	
-	public Boolean validateEditText(EditText field) {
-		String strField = field.getText().toString();
-		if (strField.trim().equals("")) {
-			return false;
-		}
-		return true;
-	}
+    public Boolean getSharedBoolValue(String key) {
+    	
+        SharedPreferences sp = context.getSharedPreferences("FILE_NAME", 0);
+        Boolean value = sp.getBoolean(key, false);
+    	
+        return value;
+    }
 
-	public String getSharedStringValue(String key) {
-		SharedPreferences sp = context.getSharedPreferences("FILE_NAME", 0);
-		String value = sp.getString(key, null);
-		return value;
-	}
+    public boolean saveSharedBoolValue(String key, Boolean value) {
+        SharedPreferences sp = context.getSharedPreferences("FILE_NAME", 0);
+        Editor edit = sp.edit();
+        edit.putBoolean(key, value);
+        return edit.commit();
+    }
 
-	public boolean saveSharedStringValue(String key, String value) {
-		SharedPreferences sp = context.getSharedPreferences("FILE_NAME", 0);
-		Editor edit = sp.edit();
-		edit.putString(key, value);
-		return edit.commit();
-	}
+    public Long getSharedLongValue(String key) {
+        SharedPreferences sp = context.getSharedPreferences("FILE_NAME", 0);
+        Long value = sp.getLong(key, 0);
+        return value;
+    }
 
-	public boolean clearSharedData() {
-		SharedPreferences sp = context.getSharedPreferences("FILE_NAME", 0);
-		Editor edit = sp.edit();
-		edit.clear();
-		return edit.commit();
-	}
+    public boolean saveSharedLongValue(String key, Long value) {
+        SharedPreferences sp = context.getSharedPreferences("FILE_NAME", 0);
+        Editor edit = sp.edit();
+        edit.putLong(key, value);
+        return edit.commit();
+    }
 
-	public boolean clearSharedDataWithKey(String key) {
-		SharedPreferences sp = context.getSharedPreferences("FILE_NAME", 0);
-		Editor edit = sp.edit();
-		edit.remove(key);
-		return edit.commit();
-	}
+    public boolean clearSharedData() {
+        SharedPreferences sp = context.getSharedPreferences("FILE_NAME", 0);
+        Editor edit = sp.edit();
+        edit.clear();
+        return edit.commit();
+    }
 
-	public Boolean getSharedBoolValue(String key) {
-		SharedPreferences sp = context.getSharedPreferences("FILE_NAME", 0);
-		Boolean value = sp.getBoolean(key, false);
-		return value;
-	}
+    public boolean clearSharedDataWithKey(String key) {
+        SharedPreferences sp = context.getSharedPreferences("FILE_NAME", 0);
+        Editor edit = sp.edit();
+        edit.remove(key);
+        return edit.commit();
+    }
 
-	public boolean saveSharedBoolValue(String key, Boolean value) {
-		SharedPreferences sp = context.getSharedPreferences("FILE_NAME", 0);
-		Editor edit = sp.edit();
-		edit.putBoolean(key, value);
-		return edit.commit();
-	}
+    public int getSharedIntValue(String key) {
+        SharedPreferences sp = context.getSharedPreferences("FILE_NAME", 0);
+        int value = sp.getInt(key, 0);
+        return value;
+    }
 
-	public int getSharedIntValue(String key) {
-		SharedPreferences sp = context.getSharedPreferences("FILE_NAME", 0);
-		int value = sp.getInt(key, 0);
-		return value;
-	}
-
-	public boolean saveSharedIntValue(String key, int value) {
-		SharedPreferences sp = context.getSharedPreferences("FILE_NAME", 0);
-		Editor edit = sp.edit();
-		edit.putInt(key, value);
-		return edit.commit();
-	}
+    public boolean saveSharedIntValue(String key, int value) {
+        SharedPreferences sp = context.getSharedPreferences("FILE_NAME", 0);
+        Editor edit = sp.edit();
+        edit.putInt(key, value);
+        return edit.commit();
+    }
 }

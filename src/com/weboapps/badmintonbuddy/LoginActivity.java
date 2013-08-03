@@ -1,15 +1,21 @@
 package com.weboapps.badmintonbuddy;
 
+import com.weboapps.badmintonbuddy.helpers.LogUtils;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
 
 public class LoginActivity extends Activity {
 
+	final static String TAG = "LoginActivity";
+	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+        
+        LogUtils.LOGV(TAG, "here in LoginActivity");
     }
 
 
