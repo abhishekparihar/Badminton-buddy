@@ -26,5 +26,8 @@
     <string name="signup">Sign up</string>
     <string name="Welcome">welcome! \n You are now part of the badminton community of pune</string>
     <string name="choose_location">Choose a lcation so we can find the buddies near you...</string>
+    <string name="finding_buddy">We are finding buddies nearby to you in Balewadi...</string>
+    <string name="please_wait_">Please wait...</string>
+    <string name="send_message">Send message</string>
 
 </resources>

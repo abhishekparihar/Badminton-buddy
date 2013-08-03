@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.badmintonbuddy.helpers.AppStatus;
 import com.badmintonbuddy.helpers.LogUtils;
@@ -26,6 +28,9 @@ public class SlidingMenuActivity extends Activity {
 
 	public Button buttonHome, buttonMyBuddies, buttonFavLocation, buttonSchedule, buttonTournaments, buttonRules, buttonTips, 
 	buttonAbout, buttonAccount, buttonLogout;
+	
+	TextView textViewHeaderTitle;
+	ImageView imageViewTitleButton;
 
 	private Intent i;
 
@@ -35,6 +40,8 @@ public class SlidingMenuActivity extends Activity {
 		requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
 		setContentView(R.layout.blank);
 		getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE,R.layout.header);
+		textViewHeaderTitle = (TextView)findViewById(R.id.textViewHeaderTitle);
+		imageViewTitleButton = (ImageView)findViewById(R.id.imageViewTitleButton);
 		bundle = savedInstanceState;
 
 		if (savedInstanceState != null) {
@@ -42,8 +49,16 @@ public class SlidingMenuActivity extends Activity {
 		}
 		appStatus = AppStatus.getInstance(this);
 
+	}
+	
+	public void setMenuDrawer(int layoutId){
+		mMenuDrawer = MenuDrawer.attach(this, MenuDrawer.MENU_DRAG_WINDOW);
+		mMenuDrawer.setContentView(layoutId);
+		mMenuDrawer.setMenuView(R.layout.menu_drawer);
+		textViewHeaderTitle.setText("Send Message");
+		initializeWidgets();
 		
-
+		
 	}
 
 
@@ -73,17 +88,6 @@ public class SlidingMenuActivity extends Activity {
 	}
 
 
-
-	public void setMenuDrawer(int layoutId){
-		mMenuDrawer = MenuDrawer.attach(this, MenuDrawer.MENU_DRAG_WINDOW);
-		mMenuDrawer.setContentView(layoutId);
-		mMenuDrawer.setMenuView(R.layout.menu_drawer);
-		
-		initializeWidgets();
-		
-		
-	}
-	
 	OnClickListener buttonLister=new OnClickListener() {
 		
 		@Override
