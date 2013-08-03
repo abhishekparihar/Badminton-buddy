@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="15dp"
+    android:background="@color/white" >
+
+    <TextView
+        android:id="@+id/textViewCourtName"
+        android:layout_width="match_parent"
+        android:layout_marginTop="15dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/gray_attendace_text"
+        android:textSize="16sp"
+        android:text="Sindh co-operarive housing society" />
+
+    <TextView
+        android:id="@+id/textViewCourtArea"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+         android:textColor="@color/gray"
+        android:textSize="16sp"
+        android:text="Aundh" />
+
+</LinearLayout>
