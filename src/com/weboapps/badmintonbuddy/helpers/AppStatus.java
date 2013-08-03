@@ -13,6 +13,10 @@ public class AppStatus {
     boolean connected = false;
     public static final String FILE_NAME = "appdata";
     public final String AUTH_KEY = "auth_key";
+    
+    public final String NAME = "name";
+    public final String EMAIL = "email";
+    public final String PHONE_NO = "phone_no";
  
 
     public static AppStatus getInstance(Context ctx) {

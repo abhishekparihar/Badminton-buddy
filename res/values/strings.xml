@@ -10,5 +10,6 @@
     <string name="mobile_number">Mobile number</string>
     <string name="name">Name</string>
     <string name="new_user_signup">New user? SignUp</string>
+    <string name="signup">Sign up</string>
 
 </resources>

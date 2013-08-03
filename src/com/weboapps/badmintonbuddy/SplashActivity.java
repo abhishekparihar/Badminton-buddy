@@ -22,7 +22,6 @@ public class SplashActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        LogUtils.LOGV(TAG, "here in splash");
         
         appStatus = AppStatus.getInstance(this);
         mhandler = new Handler();

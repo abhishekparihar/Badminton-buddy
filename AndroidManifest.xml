@@ -26,7 +26,8 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme" 
+        android:debuggable="true">
         <activity
             android:name="com.weboapps.badmintonbuddy.BadmintonBuddyNativeActivity"
             android:label="@string/app_name" >
