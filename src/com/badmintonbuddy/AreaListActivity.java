@@ -68,7 +68,7 @@ public class AreaListActivity extends SlidingMenuActivity {
 				toast.show();
 			}
 		}catch(Exception e){
-
+			e.printStackTrace();
 		}
 	}
 
@@ -108,6 +108,7 @@ public class AreaListActivity extends SlidingMenuActivity {
 				Intent i = new Intent(AreaListActivity.this, NearbyBuddyActivity.class);
 				i.putExtra("buddy_list", result);
 				startActivity(i);
+				finish();
 			}else{
 				Toast toast = Toast.makeText(AreaListActivity.this, "Something went wrong, try again!", 8000);
 				toast.show();

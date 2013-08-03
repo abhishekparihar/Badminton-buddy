@@ -31,11 +31,15 @@ public class LocationActivity extends SlidingMenuActivity {
 		setContentView(R.layout.location);
 		setMenuDrawer(R.layout.location,"",R.drawable.header);
 		
+		
 	}
 	
 	public void onLocationClick(View view) {
 		
 		appStatus = AppStatus.getInstance(this);
+		
+	//	appStatus.saveSharedBoolValue(appStatus.IS_FIRST_TIME, true);
+		
 		String[] args = new String[1];
 
 		args[0] = appStatus.getSharedStringValue(appStatus.AUTH_KEY);
@@ -88,6 +92,7 @@ public class LocationActivity extends SlidingMenuActivity {
 				Intent i = new Intent(LocationActivity.this, AreaListActivity.class);
 				i.putExtra("area_list", result);
 				startActivity(i);
+				finish();
 			}else{
 				Toast toast = Toast.makeText(LocationActivity.this, "Something went wrong, try again!", 8000);
 				toast.show();

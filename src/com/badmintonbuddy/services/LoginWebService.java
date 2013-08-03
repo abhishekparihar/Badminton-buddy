@@ -130,5 +130,33 @@ public class LoginWebService implements WebServiceIface {
 
         return result;
     }
+    
+    public static BuddyResult sendMessage(Context context, String... areaParams) {
+    	BuddyResult result = null;
+
+        WebService webService = new WebService(BASE_URL + "send_message.json");
+
+        List<NameValuePair> params = new ArrayList<NameValuePair>(1);
+        params.add(new BasicNameValuePair("auth_key", areaParams[0]));
+        params.add(new BasicNameValuePair("message", areaParams[1]));
+        params.add(new BasicNameValuePair("users", areaParams[2]));
+
+        
+        
+        String response = webService.webPost("", params);
+
+        if ( response != null ) {
+        	LogUtils.LOGE("LoginWebService", response.toString());
+        }
+
+        try {
+            result = new Gson().fromJson(response, BuddyResult.class);
+            LogUtils.LOGE("LoginWebService", result.toString());
+        } catch (Exception e) {
+        	LogUtils.LOGE("LoginWebService", "LoginResult Error: " + e.getMessage());
+        }
+
+        return result;
+    }
 
 }
