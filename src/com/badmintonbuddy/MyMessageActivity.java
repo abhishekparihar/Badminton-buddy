@@ -3,6 +3,9 @@ package com.badmintonbuddy;
 import org.json.JSONObject;
 
 import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,6 +21,7 @@ public class MyMessageActivity extends SlidingMenuActivity {
 	TextView textViewTotalMessage;
 	ListView listViewMyMessages;
 	MyMessageListAdapter myMessageListAdapter;
+	ImageView imageViewSendMessage;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -30,6 +34,17 @@ public class MyMessageActivity extends SlidingMenuActivity {
 	private void initializeList() {
 		textViewTotalMessage = (TextView)findViewById(R.id.textViewTotalMessage);
 		listViewMyMessages = (ListView)findViewById(R.id.listViewMyMessages);
+
+		imageViewSendMessage = (ImageView)findViewById(R.id.imageViewSendMessage);
+
+		imageViewSendMessage.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				// open send message activity
+
+			}
+		});
 
 		getMyMessages();
 
@@ -69,13 +84,13 @@ public class MyMessageActivity extends SlidingMenuActivity {
 			}else{
 				MyMessagesResult messagesResult = new Gson().fromJson(response, MyMessagesResult.class);
 				myMessageListAdapter = new MyMessageListAdapter(this,messagesResult);
-				
+
 				ListView mListView=(ListView)findViewById(R.id.listViewMyMessages);
 				mListView.setAdapter(myMessageListAdapter);
-				
+
 				TextView mTextView=(TextView)findViewById(R.id.textViewTotalMessage);
 				mTextView.setText(""+messagesResult.getMessages().size()+" messages");
-				
+
 			}
 			LogUtils.LOGE("LoginWebService", result.toString());
 		} catch (Exception e) {
