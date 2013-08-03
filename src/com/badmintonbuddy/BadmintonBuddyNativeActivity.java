@@ -26,7 +26,7 @@ public class BadmintonBuddyNativeActivity extends SlidingMenuActivity  implement
         
         bundle = savedInstanceState;
         setContentView(R.layout.main);
-        setMenuDrawer(R.layout.main);
+        setMenuDrawer(R.layout.main,"Home",R.color.green_light);
 		appStatus = AppStatus.getInstance(this);
 		
     }

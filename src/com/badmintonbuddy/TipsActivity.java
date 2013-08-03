@@ -12,7 +12,7 @@ public class TipsActivity extends SlidingMenuActivity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.tips);
-		setMenuDrawer(R.layout.tips);
+		setMenuDrawer(R.layout.tips,"Tips",R.color.transparent);
 	}
 
 }

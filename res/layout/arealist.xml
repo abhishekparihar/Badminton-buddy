@@ -5,6 +5,7 @@
 	android:id="@+id/linearAllAreas" 
 	android:layout_width="fill_parent"
 	android:layout_height="fill_parent"
+	android:background="@color/white"
 	android:orientation="vertical">
 	
 	
@@ -12,8 +13,8 @@
 	    android:id="@+id/listView" 
 	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
-	    
-	    />
+	    android:divider="@color/green_light"
+	    android:dividerHeight="1dp"/>
 	
 	
 </LinearLayout>

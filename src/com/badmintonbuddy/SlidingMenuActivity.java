@@ -70,11 +70,12 @@ public class SlidingMenuActivity extends Activity {
 		
 	}
 	
-	public void setMenuDrawer(int layoutId){
+	public void setMenuDrawer(int layoutId,String header,int background){
 		mMenuDrawer = MenuDrawer.attach(this, MenuDrawer.MENU_DRAG_WINDOW);
 		mMenuDrawer.setContentView(layoutId);
 		mMenuDrawer.setMenuView(R.layout.menu_drawer);
-		textViewHeaderTitle.setText("Send Message");
+		textViewHeaderTitle.setText(header);
+		textViewHeaderTitle.setBackgroundResource(background);
 		initializeWidgets();
 		
 		

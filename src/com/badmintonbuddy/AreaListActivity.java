@@ -18,7 +18,7 @@ import com.badmintonbuddy.models.BuddyResult;
 import com.badmintonbuddy.tasks.BuddyTask;
 import com.weboapps.badmintonbuddy.R;
 
-public class AreaListActivity extends Activity {
+public class AreaListActivity extends SlidingMenuActivity {
 
 	final static String TAG = "AreaListActivity";
 	AppStatus appStatus;
@@ -29,6 +29,7 @@ public class AreaListActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.arealist);
+		setMenuDrawer(R.layout.arealist,"My location",R.color.green_light);
 
 		mAreaResult=(AreaResult) getIntent().getSerializableExtra("area_list");
 
