@@ -2,24 +2,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/white"
+    android:orientation="vertical"
     tools:context=".LoginActivity" >
-    
-    <ImageView 
+
+    <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/header"/>
+        android:background="@drawable/header" />
 
     <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/green_light"
-        android:layout_marginTop="10dp"
-        android:textSize="16sp"
         android:layout_gravity="center_horizontal"
-        android:text="Tell us about yourself..." />
+        android:layout_marginTop="10dp"
+        android:text="Tell us about yourself..."
+        android:textColor="@color/green_light"
+        android:textSize="16sp" />
 
     <EditText
         android:id="@+id/editTextUser"
@@ -37,7 +37,7 @@
         android:id="@+id/editTextPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-       android:layout_margin="20dp"
+        android:layout_margin="20dp"
         android:ems="10"
         android:hint="@string/password"
         android:inputType="textPassword" />
@@ -46,24 +46,25 @@
         android:id="@+id/buttonLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/green_light"
+        android:onClick="onLoginClick"
+        android:paddingBottom="15dp"
         android:paddingLeft="40dp"
         android:paddingRight="40dp"
         android:paddingTop="15dp"
-         android:paddingBottom="15dp"
-        android:text="@string/login"
-        android:background="@color/green_light"
-        android:layout_gravity="center_horizontal"
-        android:onClick="onLoginClick" />
+        android:textColor="@color/white"
+        android:text="@string/login" />
 
     <Button
         android:id="@+id/buttonGotoSignUp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/transparent"
-        android:layout_marginTop="10dp"
-        android:text="@string/new_user_signup"
         android:layout_gravity="fill_horizontal"
+        android:layout_marginTop="10dp"
+        android:background="@color/transparent"
         android:gravity="center_horizontal"
-        android:onClick="gotoSignUp" />
+        android:onClick="gotoSignUp"
+        android:text="@string/new_user_signup" />
 
 </LinearLayout>

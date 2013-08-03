@@ -8,6 +8,7 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.TextView;
 
 import com.badmintonbuddy.helpers.AppStatus;
 import com.weboapps.badmintonbuddy.R;
@@ -27,6 +28,14 @@ public class BadmintonBuddyNativeActivity extends SlidingMenuActivity  implement
         setContentView(R.layout.main);
         setMenuDrawer(R.layout.main,"Home",R.color.green_light);
 		appStatus = AppStatus.getInstance(this);
+		
+		TextView userName = (TextView)findViewById(R.id.userName);
+		try {
+			userName.setText("Welcome, " + appStatus.getSharedStringValue(appStatus.NAME));
+		} catch (Exception e) {
+			userName.setText("Welcome, User");
+		}
+		
 		
     }
 
