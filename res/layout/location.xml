@@ -33,7 +33,6 @@
         android:layout_width="160dp"
         android:layout_height="160dp"
         android:scaleType="fitXY"
-        android:background="@color/transparent"
         android:src="@drawable/location_icon"
         android:contentDescription="@id/imageButtonlocation"
         android:onClick="onLocationClick" />

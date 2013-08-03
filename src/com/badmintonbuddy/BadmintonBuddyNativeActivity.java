@@ -29,10 +29,6 @@ public class BadmintonBuddyNativeActivity extends SlidingMenuActivity  implement
         setMenuDrawer(R.layout.main);
 		appStatus = AppStatus.getInstance(this);
 		
-		Intent mIntent=new Intent(BadmintonBuddyNativeActivity.this, AreaListActivity.class);
-		startActivity(mIntent);
-		
-		
     }
 
 

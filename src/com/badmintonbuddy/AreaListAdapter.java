@@ -12,20 +12,21 @@ import android.widget.Filterable;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.badmintonbuddy.models.AreaResult.CourtArea;
 import com.weboapps.badmintonbuddy.R;
 
 public class AreaListAdapter extends BaseAdapter implements Filterable {
     Context context;
-    List<String> areas;
+    List<CourtArea> areas;
     AreaListActivity main_context;
    
-    public AreaListAdapter(AreaListActivity context, List<String> areas) {
+    public AreaListAdapter(AreaListActivity context, List<CourtArea> list) {
         this.context = context;
-        this.areas = areas;
+        this.areas = list;
         main_context =context;
     }
 
-    @Override
+	@Override
     public int getCount() {
         if ( areas != null )
             return areas.size();
@@ -35,7 +36,7 @@ public class AreaListAdapter extends BaseAdapter implements Filterable {
 
     @Override
     public Object getItem(int index) {
-        return areas.get(index);
+        return areas.get(index).getName();
     }
 
     @Override
