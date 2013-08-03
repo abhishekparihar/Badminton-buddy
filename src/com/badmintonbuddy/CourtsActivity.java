@@ -116,7 +116,7 @@ public class CourtsActivity extends SlidingMenuActivity {
 			
 			textViewCourtArea.setText(mCourtResult.getArea());
 			textViewCourtName.setText(mCourtResult.getName());
-			
+			textViewPhone.setText(mCourtResult.getPh());
 			
 			return convertView;
 		}
