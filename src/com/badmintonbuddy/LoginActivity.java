@@ -104,7 +104,29 @@ public class LoginActivity extends Activity {
 	}
 
 	public void onAuthenticationResult(LoginResult result) {
+		try{
+			removeDialog(0);
+			if(result == null){
+				Toast toast = Toast.makeText(LoginActivity.this, "Something went wrong, try again!", 8000);
+				toast.show();
+			}
 
+			if(result.getSuccess()){
+				appStatus.saveSharedStringValue(appStatus.AUTH_KEY, result.getAuth_key());
+				appStatus.saveSharedStringValue(appStatus.PHONE_NO, result.getPhone_number());
+				appStatus.saveSharedStringValue(appStatus.NAME, result.getName());
+				appStatus.saveSharedStringValue(appStatus.EMAIL, result.getEmail());
+
+				Intent i = new Intent(LoginActivity.this, BadmintonBuddyNativeActivity.class);
+				startActivity(i);
+				finish();
+			}
+
+			Toast toast = Toast.makeText(LoginActivity.this, result.getMessage(), 8000);
+			toast.show();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 	}
 
 	@Override

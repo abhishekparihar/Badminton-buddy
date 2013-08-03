@@ -21,8 +21,7 @@ public class LoginWebService implements WebServiceIface {
     public static LoginResult login(Context context, String... login_params) {
         LoginResult result = null;
 
-        LogUtils.LOGE("LoginWebService", "Network available: " + Boolean.toString(isNetworkAvailable(context)));
-        WebService webService = new WebService(BASE_URL + "/mobile_user/sign_in.json");
+        WebService webService = new WebService(BASE_URL + "log_in.json");
 
         List<NameValuePair> params = new ArrayList<NameValuePair>(2);
         params.add(new BasicNameValuePair("email", login_params[0]));
