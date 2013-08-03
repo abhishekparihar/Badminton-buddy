@@ -9,6 +9,7 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.badmintonbuddy.helpers.AppStatus;
 import com.badmintonbuddy.helpers.LogUtils;
@@ -115,42 +116,57 @@ public class SlidingMenuActivity extends Activity {
 			LogUtils.LOGV(TAG, "on click called");
 			switch (v.getId()) {
 			case R.id.buttonAbout :
-				i = new Intent(SlidingMenuActivity.this, SplashActivity.class);
+				//i = new Intent(SlidingMenuActivity.this, SplashActivity.class);
+				showMessage();
 				break;
 			case R.id.buttonHome :
-				i = new Intent(SlidingMenuActivity.this, SplashActivity.class);
+				i = new Intent(SlidingMenuActivity.this, BadmintonBuddyNativeActivity.class);
+				startActivity(i);
 				break;
 			case R.id.buttonMyBuddies :
-				i = new Intent(SlidingMenuActivity.this, SplashActivity.class);
+				//i = new Intent(SlidingMenuActivity.this, SplashActivity.class);
+				showMessage();
 				break;
 			case R.id.buttonCourts :
 				i = new Intent(SlidingMenuActivity.this, CourtsActivity.class);
+				startActivity(i);
 				break;
 			case R.id.buttonMsg :
 				i = new Intent(SlidingMenuActivity.this, MyMessageActivity.class);
+				startActivity(i);
 				break;
 			case R.id.buttonTournaments :
-				i = new Intent(SlidingMenuActivity.this, SplashActivity.class);
+				//i = new Intent(SlidingMenuActivity.this, SplashActivity.class);
+				showMessage();
 				break;
 			case R.id.buttonRules :
-				i = new Intent(SlidingMenuActivity.this, SplashActivity.class);
+				//i = new Intent(SlidingMenuActivity.this, SplashActivity.class);
+				showMessage();
 				break;
 			case R.id.buttonTips :
 				i = new Intent(SlidingMenuActivity.this, TipsActivity.class);
+				startActivity(i);
 				break;
 			case R.id.buttonAccount :
-				i = new Intent(SlidingMenuActivity.this, SplashActivity.class);
+				//i = new Intent(SlidingMenuActivity.this, SplashActivity.class);
+				showMessage();
 				break;
 			case R.id.buttonLogout :
-				i = new Intent(SlidingMenuActivity.this, SplashActivity.class);
+				//i = new Intent(SlidingMenuActivity.this, SplashActivity.class);
+				showMessage();
 				break;
 
 			default:
 				break;
 			}
 			
-			startActivity(i);
+			
 			
 		}
 	};
+	
+	public void showMessage(){
+		Toast toast = Toast.makeText(SlidingMenuActivity.this, "Coming soon...", 8000);
+		toast.show();
+	}
 }
