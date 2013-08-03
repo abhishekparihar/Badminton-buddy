@@ -2,6 +2,9 @@ package com.badmintonbuddy;
 
 import org.json.JSONObject;
 
+import android.app.Dialog;
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -22,6 +25,7 @@ public class MyMessageActivity extends SlidingMenuActivity {
 	ListView listViewMyMessages;
 	MyMessageListAdapter myMessageListAdapter;
 	ImageView imageViewSendMessage;
+	private ProgressDialog mProgressDialog;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -96,6 +100,29 @@ public class MyMessageActivity extends SlidingMenuActivity {
 		} catch (Exception e) {
 			LogUtils.LOGE("LoginWebService", "LoginResult Error: " + e.getMessage());
 		}
+	}
+	
+	@Override
+	protected Dialog onCreateDialog(int id, Bundle args) {
+		ProgressDialog dialog = new ProgressDialog(this);
+		dialog = ProgressDialog.show(this, null, null);
+		//dialog.setContentView(R.layout.loader);
+		// dialog.setTitle("Please Wait...");
+
+		dialog.setMessage("fetching messages...");
+
+
+		dialog.setIndeterminate(true);
+		dialog.setCancelable(true);
+		dialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+			@Override
+			public void onCancel(DialogInterface dialog) {
+
+			}
+		});
+
+		mProgressDialog = dialog;
+		return dialog;
 	}
 
 

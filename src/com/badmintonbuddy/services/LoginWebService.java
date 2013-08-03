@@ -17,6 +17,7 @@ import com.badmintonbuddy.SendMessageActivity;
 import com.badmintonbuddy.helpers.LogUtils;
 import com.badmintonbuddy.models.AreaResult;
 import com.badmintonbuddy.models.BuddyResult;
+import com.badmintonbuddy.models.CourtResult;
 import com.badmintonbuddy.models.LoginResult;
 import com.google.myjson.Gson;
 
@@ -163,6 +164,31 @@ public class LoginWebService implements WebServiceIface {
 		}*/
 
 		return response;
+	}
+	
+	public static CourtResult getCourts(Context context, String... areaParams) {
+		CourtResult result = null;
+
+		WebService webService = new WebService(BASE_URL + "get_courts.json");
+
+		List<NameValuePair> params = new ArrayList<NameValuePair>(1);
+		params.add(new BasicNameValuePair("auth_key", areaParams[0]));
+
+
+		String response = webService.webPost("", params);
+
+		if ( response != null ) {
+			LogUtils.LOGE("LoginWebService", response.toString());
+		}
+
+		try {
+			result = new Gson().fromJson(response, CourtResult.class);
+			LogUtils.LOGE("LoginWebService", result.toString());
+		} catch (Exception e) {
+			LogUtils.LOGE("LoginWebService", "LoginResult Error: " + e.getMessage());
+		}
+
+		return result;
 	}
 
 }
