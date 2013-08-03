@@ -10,5 +10,18 @@
     <string name="mobile_number">Mobile number</string>
     <string name="name">Name</string>
     <string name="new_user_signup">New user? SignUp</string>
+    <string name="home">Home</string>
+    <string name="favourite_locations">Favourite locations</string>
+    <string name="my_buddies">My buddies</string>
+    <string name="my_schedule">My schedule</string>
+    <string name="tournaments">Tournaments</string>
+    <string name="rules">Rules</string>
+    <string name="tips_and_tricks">Tips and Tricks</string>
+    <string name="about">About</string>
+    <string name="account">Account</string>
+    <string name="logout">Logout</string>
+    <string name="events">Events</string>
+    <string name="resources">Resources</string>
+    <string name="settings">Settings</string>
 
 </resources>

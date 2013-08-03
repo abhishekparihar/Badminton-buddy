@@ -1,7 +1,5 @@
 package com.badmintonbuddy;
 
-import com.weboapps.badmintonbuddy.R;
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -9,7 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.weboapps.badmintonbuddy.models.LoginResult;
+import com.badmintonbuddy.models.LoginResult;
+import com.weboapps.badmintonbuddy.R;
 
 public class SignupActivity extends Activity {
 	EditText editTextSignUpEmail, editTextSignUpPassword, editTextPhone, editTextSignUpName;

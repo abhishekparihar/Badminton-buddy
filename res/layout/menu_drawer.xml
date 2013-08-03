@@ -1,12 +1,157 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:layout_height="wrap_content" >
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/app_name"/>
-</LinearLayout>
+        android:background="@color/gray"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/gray_light"
+                android:padding="10dp"
+                android:text="@string/home"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/buttonHome"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="@string/home" />
+
+            <Button
+                android:id="@+id/buttonMyBuddies"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="@string/my_buddies" />
+
+            <Button
+                android:id="@+id/buttonFavLocation"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="@string/favourite_locations" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/gray_light"
+                android:padding="10dp"
+                android:text="@string/events"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/buttonSchedule"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="@string/my_schedule" />
+
+            <Button
+                android:id="@+id/buttonTournaments"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="@string/tournaments" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/gray_light"
+                android:padding="10dp"
+                android:text="@string/resources"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/buttonRules"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="@string/rules" />
+
+            <Button
+                android:id="@+id/buttonTips"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="@string/tips_and_tricks" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/gray_light"
+                android:padding="10dp"
+                android:text="@string/settings"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/buttonAbout"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="@string/about" />
+
+            <Button
+                android:id="@+id/buttonAccount"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="@string/account" />
+
+            <Button
+                android:id="@+id/buttonLogout"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="@string/logout" />
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

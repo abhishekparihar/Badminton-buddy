@@ -4,17 +4,15 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.badmintonbuddy.helpers.AppStatus;
-import com.badmintonbuddy.helpers.LogUtils;
 import com.badmintonbuddy.models.LoginResult;
-import com.badmintonbuddy.tasks.LoginTask;
 import com.weboapps.badmintonbuddy.R;
 
 public class LoginActivity extends Activity {
