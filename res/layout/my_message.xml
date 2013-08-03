@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -13,8 +13,8 @@
         android:paddingBottom="15dp"
         android:paddingLeft="15dp"
         android:textSize="16sp"
-        android:textColor="@color/gray_attendace_text"
         android:background="@color/green_lighter"
+        android:textColor="@color/gray_attendace_text"
         android:text="13 messages" />
     
     <ListView 
@@ -22,6 +22,20 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:divider="@color/green_light"
-        android:dividerHeight="1dp"></ListView>
+        android:layout_below="@id/textViewTotalMessage"
+        android:dividerHeight="1dp">
+        
+    </ListView>
 
-</LinearLayout>
+    <ImageView
+        android:id="@+id/imageViewSendMessage"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:src="@drawable/send_message"
+        android:clickable="true" />
+
+</RelativeLayout>
