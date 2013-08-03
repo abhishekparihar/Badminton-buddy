@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.badmintonbuddy.helpers.AppStatus;
 import com.badmintonbuddy.helpers.LogUtils;
+import com.badmintonbuddy.location.LocationActivity;
 import com.badmintonbuddy.models.LoginResult;
 import com.badmintonbuddy.tasks.LoginTask;
 import com.weboapps.badmintonbuddy.R;
@@ -116,9 +117,14 @@ public class LoginActivity extends Activity {
 				appStatus.saveSharedStringValue(appStatus.PHONE_NO, result.getPhone_number());
 				appStatus.saveSharedStringValue(appStatus.NAME, result.getName());
 				appStatus.saveSharedStringValue(appStatus.EMAIL, result.getEmail());
-
-				Intent i = new Intent(LoginActivity.this, BadmintonBuddyNativeActivity.class);
-				startActivity(i);
+				
+				if(!appStatus.getSharedBoolValue(appStatus.IS_FIRST_TIME)){
+        			Intent i = new Intent(LoginActivity.this, LocationActivity.class);
+        			startActivity(i);
+        		}else{
+        			Intent i = new Intent(LoginActivity.this, BadmintonBuddyNativeActivity.class);
+    				startActivity(i);
+        		}
 				finish();
 			}
 

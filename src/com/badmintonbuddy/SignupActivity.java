@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.badmintonbuddy.helpers.AppStatus;
 import com.badmintonbuddy.helpers.LogUtils;
+import com.badmintonbuddy.location.LocationActivity;
 import com.badmintonbuddy.models.LoginResult;
 import com.badmintonbuddy.tasks.SignUpTask;
 import com.weboapps.badmintonbuddy.R;
@@ -81,16 +82,21 @@ public class SignupActivity extends Activity {
 				Toast toast = Toast.makeText(SignupActivity.this, "Something went wrong, try again!", 8000);
 				toast.show();
 			}
-			
-			if(result.getSuccess()){
-               appStatus.saveSharedStringValue(appStatus.AUTH_KEY, result.getAuth_key());
-               appStatus.saveSharedStringValue(appStatus.PHONE_NO, result.getPhone_number());
-               appStatus.saveSharedStringValue(appStatus.NAME, result.getName());
-               appStatus.saveSharedStringValue(appStatus.EMAIL, result.getEmail());
 
-               Intent i = new Intent(SignupActivity.this, BadmintonBuddyNativeActivity.class);
-               startActivity(i);
-               finish();
+			if(result.getSuccess()){
+				appStatus.saveSharedStringValue(appStatus.AUTH_KEY, result.getAuth_key());
+				appStatus.saveSharedStringValue(appStatus.PHONE_NO, result.getPhone_number());
+				appStatus.saveSharedStringValue(appStatus.NAME, result.getName());
+				appStatus.saveSharedStringValue(appStatus.EMAIL, result.getEmail());
+
+				if(!appStatus.getSharedBoolValue(appStatus.IS_FIRST_TIME)){
+					Intent i = new Intent(SignupActivity.this, LocationActivity.class);
+					startActivity(i);
+				}else{
+					Intent i = new Intent(SignupActivity.this, BadmintonBuddyNativeActivity.class);
+					startActivity(i);
+				}
+				finish();
 			}
 
 			Toast toast = Toast.makeText(SignupActivity.this, result.getMessage(), 8000);
@@ -122,7 +128,7 @@ public class SignupActivity extends Activity {
 		mProgressDialog = dialog;
 		return dialog;
 	}
-	
+
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		if (keyCode == KeyEvent.KEYCODE_BACK) {

@@ -72,6 +72,11 @@
             android:name="com.badmintonbuddy.NearbyBuddyActivity"
             android:label="@string/app_name" >
         </activity>
+        
+         <activity
+            android:name="com.badmintonbuddy.SendMessageActivity"
+            android:label="@string/app_name" >
+        </activity>
     </application>
 
 </manifest>

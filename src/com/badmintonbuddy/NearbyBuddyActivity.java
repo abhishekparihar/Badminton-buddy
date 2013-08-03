@@ -1,5 +1,8 @@
 package com.badmintonbuddy;
 
+import java.io.Serializable;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
@@ -19,7 +22,7 @@ public class NearbyBuddyActivity extends SlidingMenuActivity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.nearby_buddies);
-		setMenuDrawer(R.layout.nearby_buddies);
+		setMenuDrawer(R.layout.nearby_buddies,"Nearby Buddies",R.color.green_light);
 		
 		mBuddyResult = (BuddyResult) getIntent().getSerializableExtra("buddy_list");
 
@@ -36,6 +39,11 @@ public class NearbyBuddyActivity extends SlidingMenuActivity {
 
 	public void sendMessageClick(View view) {
 		LogUtils.LOGV("NearbyBuddyActivity", ""+mNeabyBuddyListAdapter.mSelectedList.size());
+		
+		Intent i = new Intent(NearbyBuddyActivity.this, SendMessageActivity.class);
+		i.putExtra("buddy_list", (Serializable)mNeabyBuddyListAdapter.mSelectedList);
+		startActivity(i);
+		finish();
 	}
 
 }

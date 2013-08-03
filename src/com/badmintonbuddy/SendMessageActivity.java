@@ -1,11 +1,26 @@
 package com.badmintonbuddy;
 
+import java.util.List;
+
+import android.app.Dialog;
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
 
+import com.badmintonbuddy.helpers.LogUtils;
+import com.badmintonbuddy.models.BuddyResult;
+import com.badmintonbuddy.tasks.BuddyTask;
+import com.badmintonbuddy.tasks.SendMsgTask;
 import com.weboapps.badmintonbuddy.R;
 
 public class SendMessageActivity extends SlidingMenuActivity {
+	
+	 List<String> mSelectedList=null;
+	 EditText mEditText=null;
+	private ProgressDialog mProgressDialog;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -13,11 +28,64 @@ public class SendMessageActivity extends SlidingMenuActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.send_message);
 		setMenuDrawer(R.layout.send_message, "Send message", R.color.green_light);
+		mEditText=(EditText)findViewById(R.id.editText1);
+		
+		mSelectedList=(List<String>)getIntent().getSerializableExtra("buddy_list");
+		LogUtils.LOGV("TAG", "here");
 	}
 	
 	
 	public void onSendNowClick(View view){
+		try{
+			String[] args = new String[3];
+
+			args[0] = appStatus.getSharedStringValue(appStatus.AUTH_KEY);
+			args[1] = mEditText.getText().toString();
+			args[2] = ""+mSelectedList;
+
+			if ( appStatus.isOnline() ) {
+				this.showDialog(0);
+
+				new SendMsgTask(this).execute(args);
+			} else {
+				LogUtils.LOGV(TAG, "App is not online!");
+				Toast toast = Toast.makeText(SendMessageActivity.this, "App is not online!", 8000);
+				toast.show();
+			}
+		}catch(Exception e){
+            e.printStackTrace();
+		}
+	}
+	
+
+	@Override
+	protected Dialog onCreateDialog(int id, Bundle args) {
+		ProgressDialog dialog = new ProgressDialog(this);
+		dialog = ProgressDialog.show(this, null, null);
+		//dialog.setContentView(R.layout.loader);
+		// dialog.setTitle("Please Wait...");
+
+		dialog.setMessage("sending message...");
+
+
+		dialog.setIndeterminate(true);
+		dialog.setCancelable(true);
+		dialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+			@Override
+			public void onCancel(DialogInterface dialog) {
+
+			}
+		});
+
+		mProgressDialog = dialog;
+		return dialog;
+	}
+
+
+	public void onAuthenticationResult(BuddyResult result) {
+		removeDialog(0);
 		
 	}
+
 
 }
