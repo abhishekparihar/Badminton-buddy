@@ -12,7 +12,6 @@ import android.widget.Toast;
 
 import com.badmintonbuddy.helpers.LogUtils;
 import com.badmintonbuddy.models.BuddyResult;
-import com.badmintonbuddy.tasks.BuddyTask;
 import com.badmintonbuddy.tasks.SendMsgTask;
 import com.weboapps.badmintonbuddy.R;
 

@@ -136,7 +136,7 @@ public class SlidingMenuActivity extends Activity {
 				i = new Intent(SlidingMenuActivity.this, SplashActivity.class);
 				break;
 			case R.id.buttonTips :
-				i = new Intent(SlidingMenuActivity.this, SplashActivity.class);
+				i = new Intent(SlidingMenuActivity.this, TipsActivity.class);
 				break;
 			case R.id.buttonAccount :
 				i = new Intent(SlidingMenuActivity.this, SplashActivity.class);

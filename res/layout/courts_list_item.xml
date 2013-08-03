@@ -24,4 +24,28 @@
         android:textSize="16sp"
         android:text="Aundh" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp">
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/gray_attendace_text"
+            
+            android:textSize="14sp"
+            android:text="Ph - " />
+
+        <TextView
+            android:id="@+id/textViewPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/blue_dark"
+            android:text="" />
+
+    </LinearLayout>
+
 </LinearLayout>

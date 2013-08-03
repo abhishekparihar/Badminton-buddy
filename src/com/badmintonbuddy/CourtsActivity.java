@@ -60,12 +60,14 @@ public class CourtsActivity extends SlidingMenuActivity {
 		public View getView(int position, View convertView, ViewGroup parent) {
 			TextView textViewCourtName = null;
 			TextView textViewCourtArea =null;
+			TextView textViewPhone = null;
 			
 			if (convertView == null) 
 				convertView = mInflater.inflate(R.layout.courts_list_item, null);
 			
 			textViewCourtName = (TextView)convertView.findViewById(R.id.textViewCourtName);
 			textViewCourtArea = (TextView)convertView.findViewById(R.id.textViewCourtArea);
+			textViewPhone = (TextView)convertView.findViewById(R.id.textViewPhone);
 			
 			return convertView;
 		}
