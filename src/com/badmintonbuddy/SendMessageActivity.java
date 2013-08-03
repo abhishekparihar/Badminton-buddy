@@ -90,7 +90,7 @@ public class SendMessageActivity extends SlidingMenuActivity {
 			JSONObject jsonObject = new JSONObject(response);
 
 			Boolean result = jsonObject.getBoolean("success");
-			String strMessage = jsonObject.getString("messages");
+			String strMessage = jsonObject.getString("message");
 			
 			Toast toast = Toast.makeText(SendMessageActivity.this, strMessage, 8000);
 			toast.show();

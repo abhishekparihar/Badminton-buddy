@@ -144,6 +144,8 @@ public class LoginWebService implements WebServiceIface {
 		params.add(new BasicNameValuePair("users", areaParams[2]));
 
 		String response = webService.webPost("", params);
+		if(response != null)
+			LogUtils.LOGV("LoginWebService", response);
 		
 		return response;
 	}
