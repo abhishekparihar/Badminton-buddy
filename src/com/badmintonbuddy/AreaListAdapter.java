@@ -54,13 +54,13 @@ public class AreaListAdapter extends BaseAdapter implements Filterable {
         tv.setText(result);
 
       
-        v.setOnClickListener(new View.OnClickListener() {
+        /*v.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                // itemClick(imageView, !result.getOrganization().getSupported(), position);
             }
 
-        });
+        });*/
         return v;
     }
 
