@@ -1,4 +1,4 @@
-package com.weboapps.badmintonbuddy.helpers;
+package com.badmintonbuddy.helpers;
 
 import android.content.Context;
 import android.content.SharedPreferences;

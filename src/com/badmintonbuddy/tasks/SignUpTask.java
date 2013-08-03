@@ -1,11 +1,11 @@
-package com.weboapps.badmintonbuddy.tasks;
+package com.badmintonbuddy.tasks;
 
 import android.os.AsyncTask;
 import android.widget.Toast;
 
-import com.weboapps.badmintonbuddy.SignupActivity;
-import com.weboapps.badmintonbuddy.models.LoginResult;
-import com.weboapps.badmintonbuddy.services.LoginWebService;
+import com.badmintonbuddy.SignupActivity;
+import com.badmintonbuddy.models.LoginResult;
+import com.badmintonbuddy.services.LoginWebService;
 
 public class SignUpTask extends AsyncTask<String, Integer, LoginResult> {
 	private SignupActivity context;

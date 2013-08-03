@@ -1,4 +1,4 @@
-package com.weboapps.badmintonbuddy;
+package com.badmintonbuddy;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -15,10 +15,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.weboapps.badmintonbuddy.helpers.AppStatus;
-import com.weboapps.badmintonbuddy.helpers.LogUtils;
-import com.weboapps.badmintonbuddy.models.LoginResult;
-import com.weboapps.badmintonbuddy.tasks.LoginTask;
+import com.badmintonbuddy.helpers.AppStatus;
+import com.badmintonbuddy.helpers.LogUtils;
+import com.badmintonbuddy.models.LoginResult;
+import com.badmintonbuddy.tasks.LoginTask;
+import com.weboapps.badmintonbuddy.R;
 
 public class LoginActivity extends Activity {
 
@@ -35,7 +36,7 @@ public class LoginActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.login);
-
+		appStatus = AppStatus.getInstance(this);
 		initializeWidgets();
 	}
 
@@ -45,7 +46,8 @@ public class LoginActivity extends Activity {
 		editTextPassword = (EditText)findViewById(R.id.editTextPassword);
 		buttonLogin = (Button)findViewById(R.id.buttonLogin);
 
-		appStatus = AppStatus.getInstance(this);
+		
+		
 	}
 
 
@@ -58,7 +60,6 @@ public class LoginActivity extends Activity {
 		if ( appStatus.isOnline() ) {
 			this.showDialog(0);
 			new LoginTask(this).execute(args);
-			// bIsFromSocialLogin=false;
 		} else {
 			LogUtils.LOGV("LoginActivity", "App is not online!");
 			Toast toast = Toast.makeText(LoginActivity.this, "App is not online!", 8000);
@@ -71,8 +72,7 @@ public class LoginActivity extends Activity {
 		startActivity(i);
 		finish();
 	}
-
-
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.

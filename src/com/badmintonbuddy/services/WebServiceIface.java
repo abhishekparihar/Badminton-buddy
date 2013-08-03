@@ -1,4 +1,4 @@
-package com.weboapps.badmintonbuddy.services;
+package com.badmintonbuddy.services;
 
 
 public interface WebServiceIface {

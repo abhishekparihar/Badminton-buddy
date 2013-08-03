@@ -1,4 +1,4 @@
-package com.weboapps.badmintonbuddy.services;
+package com.badmintonbuddy.services;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,9 +10,9 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
+import com.badmintonbuddy.helpers.LogUtils;
+import com.badmintonbuddy.models.LoginResult;
 import com.google.myjson.Gson;
-import com.weboapps.badmintonbuddy.helpers.LogUtils;
-import com.weboapps.badmintonbuddy.models.LoginResult;
 
 public class LoginWebService implements WebServiceIface {
 	

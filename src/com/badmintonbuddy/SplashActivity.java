@@ -1,4 +1,4 @@
-package com.weboapps.badmintonbuddy;
+package com.badmintonbuddy;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -8,8 +8,9 @@ import android.os.Handler;
 import android.view.Menu;
 import android.widget.Toast;
 
-import com.weboapps.badmintonbuddy.helpers.AppStatus;
-import com.weboapps.badmintonbuddy.helpers.LogUtils;
+import com.badmintonbuddy.helpers.AppStatus;
+import com.badmintonbuddy.helpers.LogUtils;
+import com.weboapps.badmintonbuddy.R;
 
 public class SplashActivity extends Activity {
 	

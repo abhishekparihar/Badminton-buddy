@@ -1,4 +1,4 @@
-package com.weboapps.badmintonbuddy;
+package com.badmintonbuddy;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -13,10 +13,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.weboapps.badmintonbuddy.helpers.AppStatus;
-import com.weboapps.badmintonbuddy.helpers.LogUtils;
-import com.weboapps.badmintonbuddy.models.LoginResult;
-import com.weboapps.badmintonbuddy.tasks.SignUpTask;
+import com.badmintonbuddy.helpers.AppStatus;
+import com.badmintonbuddy.helpers.LogUtils;
+import com.badmintonbuddy.models.LoginResult;
+import com.badmintonbuddy.tasks.SignUpTask;
+import com.weboapps.badmintonbuddy.R;
 
 public class SignupActivity extends Activity {
 	EditText editTextSignUpEmail, editTextSignUpPassword, editTextPhone, editTextSignUpName;

@@ -1,4 +1,4 @@
-package com.weboapps.badmintonbuddy.models;
+package com.badmintonbuddy.models;
 
 
 public class LoginResult  {

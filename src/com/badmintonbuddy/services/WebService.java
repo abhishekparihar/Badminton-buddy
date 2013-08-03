@@ -1,4 +1,4 @@
-package com.weboapps.badmintonbuddy.services;
+package com.badmintonbuddy.services;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -32,8 +32,8 @@ import org.apache.http.util.EntityUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.badmintonbuddy.helpers.LogUtils;
 import com.google.myjson.Gson;
-import com.weboapps.badmintonbuddy.helpers.LogUtils;
 
 public class WebService {
     DefaultHttpClient httpClient;

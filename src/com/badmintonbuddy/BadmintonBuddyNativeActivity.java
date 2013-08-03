@@ -1,19 +1,40 @@
-package com.weboapps.badmintonbuddy;
+package com.badmintonbuddy;
 
-import android.os.Bundle;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnKeyListener;
+import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.Menu;
 
+import com.badmintonbuddy.helpers.AppStatus;
+import com.badmintonbuddy.slidingmenu.MenuDrawer;
+import com.weboapps.badmintonbuddy.R;
+
 public class BadmintonBuddyNativeActivity extends Activity {
 
+	private static final String STATE_ACTIVE_POSITION = "com.badmintonbuddy.activePosition";
+	final static String TAG = "BadmintonBuddyNativeActivity";
+	public static AppStatus appStatus;
+	public MenuDrawer mMenuDrawer;
+	
+	Bundle bundle;
+	private int mActivePosition = -1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        
+        bundle = savedInstanceState;
+
+		if (savedInstanceState != null) {
+			mActivePosition = savedInstanceState.getInt(STATE_ACTIVE_POSITION);
+		}
+		appStatus = AppStatus.getInstance(this);
+		mMenuDrawer = MenuDrawer.attach(this, MenuDrawer.MENU_DRAG_CONTENT);
+		mMenuDrawer.setContentView(R.layout.main);
+		mMenuDrawer.setMenuView(R.layout.menu_drawer);
+        //setContentView(R.layout.main);
     }
 
 
@@ -65,5 +86,4 @@ public class BadmintonBuddyNativeActivity extends Activity {
 		});
 		exitAlert.show();
 	}
-    
 }
