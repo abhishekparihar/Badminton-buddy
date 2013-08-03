@@ -48,7 +48,26 @@ public class SlidingMenuActivity extends Activity {
 			mActivePosition = savedInstanceState.getInt(STATE_ACTIVE_POSITION);
 		}
 		appStatus = AppStatus.getInstance(this);
+		
+		imageViewTitleButton.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				opencloseMenu();
+				
+			}
+		});
 
+	}
+	
+	private void opencloseMenu() {
+		final int drawerState = mMenuDrawer.getDrawerState();
+		if(drawerState == MenuDrawer.STATE_CLOSED || drawerState == MenuDrawer.STATE_CLOSING){
+			mMenuDrawer.openMenu();
+		}else {
+			mMenuDrawer.closeMenu();
+		}
+		
 	}
 	
 	public void setMenuDrawer(int layoutId){

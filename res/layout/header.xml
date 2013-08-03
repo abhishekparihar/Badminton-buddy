@@ -2,7 +2,7 @@
   <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/tabBar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="55dp"
         android:background="@color/green_light"
         android:orientation="horizontal" >
 
@@ -14,6 +14,7 @@
           android:layout_gravity="center"
           android:contentDescription="@id/imageViewTitleButton"
           android:clickable="true"
+          android:layout_marginLeft="10dp"
           android:onClick="onMenuClick"/>
 
         <TextView
@@ -24,6 +25,8 @@
             android:layout_marginLeft="10dp"
             android:singleLine="true"
             android:padding="10dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
             android:textColor="@color/white" />
 
     </LinearLayout>
